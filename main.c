@@ -9,7 +9,7 @@ int main() {
     char input[MAX_INPUT_SIZE];
 
     printf("C wallet v%s\n", VERSION);
-    printf("Type 'help' for a list of commands.\n");
+    printf("Type 'help' for a list of commands.\n\n");
 
     while (1) {
         printf("> ");

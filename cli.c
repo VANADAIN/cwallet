@@ -2,15 +2,11 @@
 #include <string.h>
 #include <stdlib.h>
 
+// handlers
+#include "help_handler.h"
+#include "wallet_handler.h"
+
 #define NUM_COMMANDS 4
-
-void help() {
-    printf("Available commands:\n");
-    printf("help      - Show this help message\n");
-    printf("exit | ex - Exit the program\n");
-    // Add more commands here
-}
-
 
 void process_command(char *input) {
     // take first word as command
@@ -71,7 +67,7 @@ void process_command(char *input) {
             exit(0);
             break;
         case 3:
-            printf("Wallet command not implemented yet.\n");
+            WH_run(arguments, arg_count);
             break;
         default:
             printf("Unknown command: %s\n", input);

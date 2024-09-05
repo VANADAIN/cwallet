@@ -4,7 +4,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11
 TARGET = cwallet
-SRC = main.c cli.c
+SRC = main.c cli.c help_handler.c wallet_handler.c
 
 all: $(TARGET)
 
