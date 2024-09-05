@@ -3,13 +3,16 @@
 
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11
-TARGET = cwallet
-SRC = main.c cli.c help_handler.c wallet_handler.c
+TARGET = bin/cwallet
+SRC = src/main.c src/cli.c src/help_handler.c src/wallet_handler.c
 
-all: $(TARGET)
+all: build
 
-$(TARGET): $(SRC)
+build: $(SRC) | bin
 	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
+
+bin:
+	mkdir -p bin
 
 clean:
 	rm -f $(TARGET)
