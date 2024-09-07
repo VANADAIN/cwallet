@@ -6,10 +6,7 @@
 #include "help_handler.h"
 #include "wallet_handler.h"
 
-#define NUM_COMMANDS 4
-
 void process_command(char *input) {
-    // take first word as command
     char *command = strtok(input, " ");
 
     // Array to store up to 3 arguments
@@ -37,13 +34,15 @@ void process_command(char *input) {
     }
     printf("\n");
         
-    const char *commands[NUM_COMMANDS] = {
+    const char *commands[] = {
         "help", 
         "exit",
         "ex",
         "wallet"
     };
     int command_index = -1;
+
+    const int NUM_COMMANDS = sizeof(commands) / sizeof(commands[0]);
 
     for (int i = 0; i < NUM_COMMANDS; i++) {
         if (strcmp(input, commands[i]) == 0) {
@@ -67,7 +66,7 @@ void process_command(char *input) {
             exit(0);
             break;
         case 3:
-            WH_run(arguments, arg_count);
+            WH_run(arguments);
             break;
         default:
             printf("Unknown command: %s\n", input);
